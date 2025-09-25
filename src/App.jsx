@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-white shadow flex justify-around p-4">
+      <nav className="fixed top-0 w-content bg-white shadow flex justify-around p-4">
         <Link to="home" smooth className="cursor-pointer">
           Home
         </Link>
@@ -92,37 +92,19 @@ function App() {
             method="POST"
             data-netlify="true"
             action="/thank-you"
-            className="flex flex-col max-w-md space-y-3 p-4 shadow rounded"
+            netlify
           >
             <input type="hidden" name="form-name" value="contact" />
 
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              required
-              className="p-2 border rounded"
-            />
+            <input type="text" name="name" placeholder="Your Name" required />
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Your Email"
               required
-              className="p-2 border rounded"
             />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              required
-              className="p-2 border rounded"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="bg-blue-600 text-white p-2 rounded"
-            >
-              Send
-            </button>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
           </form>
           {/* Document Upload Form */}
           <form
@@ -130,6 +112,7 @@ function App() {
             method="POST"
             data-netlify="true"
             encType="multipart/form-data"
+            netlify
           >
             <input type="hidden" name="form-name" value="documents" />
 
