@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative bg-orange-600 text-white py-20 px-6 md:px-20">
+    <section className="relative bg-blue-600 text-white py-20 px-6 md:px-20">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Учись за рубежом с уверенностью
@@ -24,7 +24,7 @@ export default function Hero() {
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-white text-orange-600 font-semibold rounded-lg hover:bg-gray-100"
+            className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100"
           >
             Получить консультацию
           </button>

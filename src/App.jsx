@@ -22,8 +22,8 @@ function App() {
       <VisaResults />
       <Testimonials />
       <ContactForm />
-      {/* Blog */}
-      <section id="blog" className="min-h-screen p-12 bg-gray-100">
+      <Footer />;{/* Blog */}
+      {/* <section id="blog" className="min-h-screen p-12 bg-gray-100">
         <h2 className="text-3xl font-bold mb-4">Latest Updates</h2>
         <div className="space-y-4">
           <article className="p-4 shadow rounded bg-white">
@@ -43,8 +43,7 @@ function App() {
             </p>
           </article>
         </div>
-      </section>
-      <Footer />;
+      </section> */}
     </div>
   );
 }
