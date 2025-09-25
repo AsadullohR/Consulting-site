@@ -14,17 +14,17 @@ export default function Hero() {
             type="text"
             name="name"
             placeholder="Ваше имя"
-            className="w-full md:w-auto flex-1 px-4 py-3 rounded-lg border border-transparent focus:outline-none"
+            className="w-full md:w-auto flex-1 px-4 py-3  bg-white text-black rounded-lg border border-transparent focus:outline-none"
           />
           <input
             type="text"
             name="phone"
             placeholder="Телефон"
-            className="w-full md:w-auto flex-1 px-4 py-3 rounded-lg border border-transparent focus:outline-none"
+            className="w-full md:w-auto flex-1 px-4 py-3  bg-white text-black rounded-lg border border-transparent focus:outline-none"
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100"
+            className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-100"
           >
             Получить консультацию
           </button>

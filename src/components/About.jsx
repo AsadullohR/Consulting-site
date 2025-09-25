@@ -24,7 +24,7 @@ export default function AboutUs() {
             onClick={() => setTab("about")}
             className={`px-4 py-2 rounded-lg font-semibold transition ${
               tab === "about"
-                ? "bg-orange-600 text-white"
+                ? "bg-blue-600 text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
@@ -34,7 +34,7 @@ export default function AboutUs() {
             onClick={() => setTab("team")}
             className={`px-4 py-2 rounded-lg font-semibold transition ${
               tab === "team"
-                ? "bg-orange-600 text-white"
+                ? "bg-blue-600 text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
