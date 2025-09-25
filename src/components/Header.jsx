@@ -1,7 +1,9 @@
 export default function Header() {
   return (
     <header className="flex justify-between items-center p-4 shadow-md bg-white sticky top-0 z-50">
-      <h1 className="text-2xl font-bold text-blue-600">Consulting Firm</h1>
+      <h1 className="text-2xl font-bold text-blue-600">
+        One Consulting & Academy
+      </h1>
       <nav className="space-x-6 hidden md:block">
         <a href="#services" className="hover:text-blue-600">
           Services
