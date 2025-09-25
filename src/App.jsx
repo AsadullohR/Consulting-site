@@ -91,6 +91,7 @@ function App() {
             name="contact"
             method="POST"
             data-netlify="true"
+            action="/thank-you"
             className="flex flex-col max-w-md space-y-3 p-4 shadow rounded"
           >
             <input type="hidden" name="form-name" value="contact" />
@@ -123,6 +124,7 @@ function App() {
               Send
             </button>
           </form>
+          {/* Document Upload Form */}
           <form
             name="documents"
             method="POST"

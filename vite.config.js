@@ -13,4 +13,7 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  server: {
+    historyApiFallback: true, // 👈 this makes Vite serve index.html for all routes
+  },
 });
