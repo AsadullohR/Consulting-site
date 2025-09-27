@@ -1,6 +1,10 @@
 export default function Hero() {
   return (
-    <section className="relative bg-linear-to-r from-cyan-500 to-blue-600 text-white py-20 px-6 md:px-20">
+    <section className="relative  text-white py-20 px-6 md:px-20">
+      {/* bg-linear-to-r from-cyan-500 to-blue-600 */}
+      <div class="bg"></div>
+      <div class="bg bg2"></div>
+      <div class="bg bg3"></div>
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Study Abroad with Confidence{" "}
@@ -24,7 +28,7 @@ export default function Hero() {
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-100"
+            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-gray-100 hover:text-black"
           >
             Get a consultation
           </button>
