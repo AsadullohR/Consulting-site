@@ -1,6 +1,6 @@
-import turkey from "/src/assets/turkey.png";
-import korea from "/src/assets/south-korea.png";
-import china from "/src/assets/china.png";
+import turkey from "/src/assets/countries/turkey.png";
+import korea from "/src/assets/countries/south-korea.png";
+import china from "/src/assets/countries/china.png";
 const serviceCards = [
   {
     title: "Study in Turkey",
