@@ -1,20 +1,33 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import img1 from "/src/assets/partners/anyang.webp";
+import img2 from "/src/assets/partners/gunjang.svg";
+import img3 from "/src/assets/partners/chungbuk.png";
+import img4 from "/src/assets/partners/chongam.svg";
+import img5 from "/src/assets/partners/dongwon.jpg";
+import img6 from "/src/assets/partners/fareast.jpg";
+import img7 from "/src/assets/partners/Hansong.png";
+import img8 from "/src/assets/partners/induk.png";
+import img9 from "/src/assets/partners/Kalvin.svg";
+import img10 from "/src/assets/partners/Sahmyok.png";
+import img11 from "/src/assets/partners/woosuk.png";
+import img12 from "/src/assets/partners/Youngsan.gif";
 import "swiper/css";
+import "swiper/css/autoplay";
 
 const partners = [
-  "/src/assets/partners/anyang.webp",
-  "/src/assets/partners/gunjang.svg",
-  "/src/assets/partners/chungbuk.png",
-  "/src/assets/partners/chongam.svg",
-  "/src/assets/partners/dongwon.jpg",
-  "/src/assets/partners/fareast.jpg",
-  "/src/assets/partners/Hansong.png",
-  "/src/assets/partners/induk.png",
-  "/src/assets/partners/Kalvin.svg",
-  "/src/assets/partners/Sahmyok.png",
-  "/src/assets/partners/woosuk.png",
-  "/src/assets/partners/Youngsan.gif",
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
 ];
 
 export default function PartnersCarousel() {

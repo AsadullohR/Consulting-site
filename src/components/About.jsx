@@ -1,20 +1,22 @@
 import { useState } from "react";
-
+import imgSarvar from "/src/assets/team/Sarvar-Kasimov.png";
+import imgKhasanboy from "/src/assets/team/Khasanboy1.png";
+import imgAsadulloh from "/src/assets/team/Asadulloh-Rakhimov.png";
 const team = [
   {
     name: "Sarvar Kasimov",
     role: "CEO",
-    img: "src/assets/team/Sarvar-Kasimov.png",
+    img: imgSarvar,
   },
   {
     name: "Khasanboy Makhmudov",
     role: "Manager",
-    img: "/src/assets/team/Khasanboy1.png",
+    img: imgKhasanboy,
   },
   {
     name: "Asadulloh Rakhimov",
     role: "Visa Specialist",
-    img: "src/assets/team/Asadulloh-Rakhimov.png",
+    img: imgAsadulloh,
   },
 ];
 

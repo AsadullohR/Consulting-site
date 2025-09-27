@@ -1,11 +1,9 @@
+import logo from "/public/One-Consulting-Nobg.png";
+
 export default function Header() {
   return (
     <header className="flex justify-between items-center p-3 px-2 sm:px-18 shadow-md bg-white sticky top-0 z-50">
-      <img
-        src="/public/One-Consulting-Nobg.png"
-        alt="Logo"
-        className="h-15 w-45 sm:w-60 object-contain"
-      />
+      <img src={logo} alt="Logo" className="h-15 w-45 sm:w-60 object-contain" />
       <nav className="space-x-6 font-semibold hidden md:block">
         <a href="#partners" className="hover:text-blue-600">
           Partners

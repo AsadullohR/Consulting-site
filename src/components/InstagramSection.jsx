@@ -14,10 +14,10 @@ export default function InstagramSection() {
         <div className="w-full h-[13rem] md:h-[42.5rem] overflow-hidden rounded-xl shadow-lg">
           <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
           <iframe
-            src="//lightwidget.com/widgets/1b589885410d5cc29a4bc177a786ca45.html"
+            src="https://cdn.lightwidget.com/widgets/1b589885410d5cc29a4bc177a786ca45.html"
             scrolling="no"
             allowtransparency="true"
-            className="lightwidget-widget"
+            className="lightwidget-widget w-full h-full border-0"
           ></iframe>
         </div>
 
