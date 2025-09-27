@@ -1,13 +1,13 @@
 const features = [
-  { title: "Стипендии & финансирование", icon: "🎓" },
-  { title: "Поддержка поступлений", icon: "🏛️" },
-  { title: "Визовая помощь", icon: "🛂" },
-  { title: "Курсы и языковая подготовка", icon: "📘" },
+  { title: "Scholarships & Funding", icon: "🎓" },
+  { title: "Addmission Support", icon: "🏛️" },
+  { title: "Professional Support with Visas", icon: "🛂" },
+  { title: "Courses and language training", icon: "📘" },
 ];
 
-export default function Features() {
+export default function Services() {
   return (
-    <section id="features" className="py-16 bg-white px-6 md:px-20">
+    <section id="services" className="py-16 bg-white px-6 md:px-20">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map((f, i) => (
           <div

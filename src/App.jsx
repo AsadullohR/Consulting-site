@@ -1,14 +1,16 @@
 import "./App.css";
 import About from "./components/About";
 import ContactForm from "./components/ContactForm";
+import Countries from "./components/Countries";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import PartnersCarousel from "./components/PartnersCarousel";
-import ServicesCards from "./components/ServiceCards";
 import Services from "./components/Services";
+import ShortsSection from "./components/ShortsSection";
 import Testimonials from "./components/Testimonials";
 import VisaResults from "./components/VisaResults";
+import InstagramSection from "./components/InstagramSection";
 
 function App() {
   return (
@@ -18,11 +20,14 @@ function App() {
       <PartnersCarousel />
       <About />
       <Services />
-      <ServicesCards />
+      <Countries />
       <VisaResults />
-      <Testimonials />
+      {/* <ShortsSection /> */}
+      {/* <Testimonials /> */}
+      <InstagramSection />
       <ContactForm />
-      <Footer />;{/* Blog */}
+      <Footer />
+      {/* Blog */}
       {/* <section id="blog" className="min-h-screen p-12 bg-gray-100">
         <h2 className="text-3xl font-bold mb-4">Latest Updates</h2>
         <div className="space-y-4">

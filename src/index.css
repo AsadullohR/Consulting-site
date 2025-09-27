@@ -1,2 +1,22 @@
 /* @tailwind directives removed because Tailwind CSS is not being processed */
 @import "tailwindcss";
+
+.result-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 10px 10px 10px rgba(59, 130, 246, 0.3);
+  padding: 0.5 rem, 1 rem;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  height: 30rem;
+}
+@media screen and (max-width: 640px) {
+  .result-card {
+    height: auto;
+  }  
+}
+.lightwidget-widget {  
+ width:100%;
+ height:100%;
+ overflow:hidden;
+ /* border: 1px solid rgba(59, 130, 246, 0.5); */
+ padding: auto;
+}
