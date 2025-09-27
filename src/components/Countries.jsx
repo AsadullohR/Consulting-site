@@ -1,18 +1,21 @@
+import turkey from "/src/assets/turkey.png";
+import korea from "/src/assets/south-korea.png";
+import china from "/src/assets/china.png";
 const serviceCards = [
   {
     title: "Study in Turkey",
     desc: "Top universities, language courses, visa help",
-    img: "/src/assets/Turkey.png", // use real images later
+    img: turkey, // use real images later
   },
   {
     title: "Study in South Korea",
     desc: "Scholarships & short-term & long-term programs",
-    img: "/src/assets/korea.jpg",
+    img: korea,
   },
   {
     title: "Study in China",
     desc: "Scholarships & short-term & long-term programs",
-    img: "/src/assets/china.jpg",
+    img: china,
   },
   // add more
 ];
