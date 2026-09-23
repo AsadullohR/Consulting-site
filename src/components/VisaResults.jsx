@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Reveal from "./Reveal";
 import visa1 from "../assets/visas/8. MAKHMUDOV ZIKRULLOKH_page-0001.jpg";
 import visa2 from "../assets/visas/9. MUYDINOV BEKZODBEK_page-0001.jpg";
 import visa3 from "../assets/visas/10. SODIKJONOV MUKHAMMADSOBIR_page-0001.jpg";
@@ -32,12 +33,12 @@ export default function VisaResults() {
       <h2 className="text-4xl font-bold text-center mb-2 text-blue-600">
         Our results
       </h2>
-      <p className="text-center max-w-2xl mx-auto mb-8 sm:mb-32 text-gray-700 px-4">
+      <p className="text-center max-w-2xl mx-auto mb-10 text-gray-700 px-4">
         Our customers got accepted into best universities and programs, below
         are some of them.
       </p>
 
-      <div className="max-w-none sm:max-w-6xl mx-auto px-4">
+      <Reveal className="max-w-none sm:max-w-6xl mx-auto px-4">
         <Swiper
           spaceBetween={30}
           slidesPerView={3}
@@ -59,7 +60,7 @@ export default function VisaResults() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </Reveal>
     </section>
   );
 }

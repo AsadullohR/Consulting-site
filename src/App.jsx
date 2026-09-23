@@ -9,19 +9,28 @@ import PartnersCarousel from "./components/PartnersCarousel";
 import Services from "./components/Services";
 import VisaResults from "./components/VisaResults";
 import InstagramSection from "./components/InstagramSection";
+import Reveal from "./components/Reveal";
 
 function App() {
   return (
     <div>
       <Header />
       <Hero />
-      <PartnersCarousel />
-      <About />
+      <Reveal>
+        <PartnersCarousel />
+      </Reveal>
+      <Reveal>
+        <About />
+      </Reveal>
       <Services />
       <Countries />
       <VisaResults />
-      <InstagramSection />
-      <ContactForm />
+      <Reveal>
+        <InstagramSection />
+      </Reveal>
+      <Reveal>
+        <ContactForm />
+      </Reveal>
       <Footer />
     </div>
   );
