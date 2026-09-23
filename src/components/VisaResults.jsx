@@ -29,7 +29,7 @@ const visas = [
 export default function VisaResults() {
   return (
     <section id="results" className="py-20 bg-white">
-      <h2 className="text-3xl font-bold text-center mb-2 text-blue-600">
+      <h2 className="text-4xl font-bold text-center mb-2 text-blue-600">
         Our results
       </h2>
       <p className="text-center max-w-2xl mx-auto mb-8 sm:mb-32 text-gray-700 px-4">
