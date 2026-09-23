@@ -9,14 +9,16 @@ const FIELDS = [
   { name: "parentPhone", label: "Ota-ona/vasiy telefon raqami", type: "tel", required: false },
 ];
 
-export default function StudentInfoStep({ data, onChange, onNext, onBack }) {
+export default function StudentInfoStep({ data, tariff, onChange, onNext, onBack }) {
   function handleChange(e) {
     onChange({ ...data, [e.target.name]: e.target.value });
   }
 
-  const requiredFilled = FIELDS.filter((f) => f.required).every(
-    (f) => (data[f.name] || "").trim() !== ""
-  );
+  const isStandard = tariff?.id === "standard";
+  const requiredFilled =
+    FIELDS.filter((f) => f.required).every((f) => (data[f.name] || "").trim() !== "") &&
+    (data.pricingTerms || "").trim() !== "" &&
+    (!isStandard || (data.docsPricingTerms || "").trim() !== "");
 
   return (
     <div>
@@ -40,6 +42,49 @@ export default function StudentInfoStep({ data, onChange, onNext, onBack }) {
             />
           </label>
         ))}
+      </div>
+
+      <div className="mt-6 space-y-4">
+        <label className="block">
+          <span className="text-sm font-medium text-gray-700">
+            {isStandard
+              ? "Talaba shartnomasi bo'yicha to'lov shartlari"
+              : "To'lov shartlari (xizmatlar, umumiy summa, to'langan/qolgan to'lov)"}
+            <span className="text-red-500"> *</span>
+          </span>
+          <span className="block text-xs text-gray-500 mt-0.5">
+            Menejer bilan kelishilgan narx va to'lov jadvalini shu yerga yozing —
+            bu matn shartnomaga o'zgarishsiz kiritiladi.
+          </span>
+          <textarea
+            className="mt-1 w-full p-3 border rounded"
+            rows={4}
+            name="pricingTerms"
+            value={data.pricingTerms || ""}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        {isStandard && (
+          <label className="block">
+            <span className="text-sm font-medium text-gray-700">
+              Hujjatlar/apostil shartnomasi bo'yicha to'lov shartlari
+              <span className="text-red-500"> *</span>
+            </span>
+            <span className="block text-xs text-gray-500 mt-0.5">
+              Bu ikkinchi, alohida shartnoma bo'lgani uchun narxi boshqacha bo'lishi mumkin.
+            </span>
+            <textarea
+              className="mt-1 w-full p-3 border rounded"
+              rows={3}
+              name="docsPricingTerms"
+              value={data.docsPricingTerms || ""}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        )}
       </div>
 
       <div className="mt-8 flex gap-3">

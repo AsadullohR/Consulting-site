@@ -18,8 +18,20 @@ export default function ContractPage() {
   const [generating, setGenerating] = useState(false);
   const [pdfError, setPdfError] = useState(null);
 
+  // Client-generated reference only — there's no backend/DB here to hand
+  // out a real sequential contract register number, so this just needs to
+  // be a stable, reasonably unique tag for this submission.
+  const [contractNumber] = useState(() => {
+    const now = new Date();
+    const d = String(now.getDate()).padStart(2, "0");
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const rand = Math.floor(1000 + Math.random() * 9000);
+    return `${d}${m}-${rand}`;
+  });
+
   const printableRef = useRef(null);
   const tariff = tariffs.find((t) => t.id === tariffId) || null;
+  const studentDataWithMeta = { ...studentData, contractNumber };
 
   function goTo(index) {
     setStep(Math.max(0, Math.min(STEPS.length - 1, index)));
@@ -78,6 +90,7 @@ export default function ContractPage() {
           {step === 1 && (
             <StudentInfoStep
               data={studentData}
+              tariff={tariff}
               onChange={setStudentData}
               onNext={() => goTo(2)}
               onBack={() => goTo(0)}
@@ -90,7 +103,7 @@ export default function ContractPage() {
                 Shartnoma matni bilan tanishing
               </h2>
               <div className="max-h-96 overflow-y-auto border rounded-lg">
-                <ReviewStep studentData={studentData} tariff={tariff} />
+                <ReviewStep studentData={studentDataWithMeta} tariff={tariff} />
               </div>
               <label className="mt-4 flex items-start gap-2 text-sm text-gray-700">
                 <input
@@ -172,7 +185,7 @@ export default function ContractPage() {
       <div className="fixed -left-[9999px] top-0" aria-hidden="true">
         <ReviewStep
           ref={printableRef}
-          studentData={studentData}
+          studentData={studentDataWithMeta}
           tariff={tariff}
           signatureDataUrl={signatureDataUrl}
           printable

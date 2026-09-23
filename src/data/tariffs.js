@@ -1,27 +1,32 @@
-// PLACEHOLDER — replace with One Consulting's real service packages.
-// Each tariff needs: id, name, description, features (bullet list),
-// and price (string, since prices are usually quoted with currency/notes).
+// Two real packages, per the client (Sept 2026): Standard bundles the
+// student contract together with the documents/apostille addendum; VIP
+// ("ONE PRO MAX ULTRA") is its own standalone, more inclusive contract.
+// Pricing is case-by-case (depends on university/country), so there's no
+// fixed price shown here — the actual amount is captured per student in
+// the wizard's "to'lov shartlari" field, exactly as in the source contracts.
 export const tariffs = [
   {
-    id: "placeholder-standard",
-    name: "[Standard tarif — PLACEHOLDER]",
-    description: "[Replace with the real package description.]",
+    id: "standard",
+    name: "Standart tarif",
+    description:
+      "Universitet tanlash, hujjatlarni tayyorlash va topshirish, immigratsiya hamda viza olish jarayonida amaliy yordam. Talaba universitet/elchixona to'lovlarini mustaqil amalga oshiradi.",
     features: [
-      "[Feature 1 — e.g. hujjatlarni tayyorlash]",
-      "[Feature 2 — e.g. universitetga topshirish]",
-      "[Feature 3 — e.g. viza jarayoni bo'yicha yordam]",
+      "Universitetga topshirish va hujjatlarni tayyorlash bo'yicha maslahat",
+      "Immigratsiya va viza jarayoni bo'yicha amaliy yordam",
+      "Diplomni apostillash va zarur hujjatlar tarjimasi (alohida shartnoma bilan birga imzolanadi)",
     ],
-    price: "[narxi]",
+    price: "Kelishilgan holda",
   },
   {
-    id: "placeholder-vip",
-    name: "[VIP tarif — PLACEHOLDER]",
-    description: "[Replace with the real package description.]",
+    id: "vip",
+    name: "VIP tarif (ONE PRO MAX ULTRA)",
+    description:
+      "To'liq hamrohlik: hujjatlarni tayyorlash, bank depoziti, universitet kontrakti va elchixona to'lovlari, aviachipta, kutib olish xizmati va sim-karta bitta shartnoma doirasida.",
     features: [
-      "[Feature 1]",
-      "[Feature 2]",
-      "[Feature 3]",
+      "Universitetga to'liq hujjatlarni tayyorlab berish",
+      "Bank depoziti, universitet kontrakti va elchixona to'lovlarini to'lab berish",
+      "Aviachipta, kutib olish (transfer) va sim-karta xizmati",
     ],
-    price: "[narxi]",
+    price: "Kelishilgan holda",
   },
 ];
