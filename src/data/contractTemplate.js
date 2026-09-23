@@ -6,10 +6,14 @@
 // "ONE ACADEMY & CONSULTING" NTM per the source docs.
 //
 // KNOWN GAPS — do not treat this as launch-ready as-is:
-// - The VIP source contract also has a "Kafil" (guarantor) as a second
-//   signing party with a 250,000,000 so'm penalty clause. This flow only
-//   collects the student's signature; a guarantor co-sign step is not
-//   built yet.
+// - The VIP source contract's own opening paragraph only names two parties
+//   (Bajaruvchi/Buyurtmachi), even though the body repeatedly refers to a
+//   "Kafil" (guarantor) and the source document's signature block has a
+//   line for one. That's a gap in the client's original template. Rather
+//   than reproduce the inconsistency, the opening paragraph here formally
+//   introduces the guarantor as a third party when one is provided, and
+//   clause 5.14's liability is written as joint (Buyurtmachi and Kafil
+//   together), matching how the rest of the body already talks about them.
 // - Pricing is case-by-case in the source docs (varies by university/
 //   country), so it's captured here as a free-text field the staff/student
 //   fill in per contract, not a fixed price list.
@@ -288,7 +292,15 @@ function vipContractBody(data) {
     {
       text: `Biz quyida imzo chekuvchilar bir tomondan ${COMPANY_NAME} (keyingi o'rinlarda "Bajaruvchi" deb nomlanadi) nomidan rahbar Kasimov Sarvarbek, ikkinchi tomondan fuqaro ${
         data.fullName || "[F.I.Sh.]"
-      } (keyingi o'rinlarda "Buyurtmachi" deb nomlanadi) ushbu shartnoma asosida quyidagilarga kelishdik.`,
+      } (keyingi o'rinlarda "Buyurtmachi" deb nomlanadi)${
+        data.guarantor?.fullName
+          ? `, hamda fuqaro ${data.guarantor.fullName} (Buyurtmachiga qarindoshligi: ${
+              data.guarantor.relationship || "[qarindoshligi]"
+            }, ID/passport raqami: ${
+              data.guarantor.passportNumber || "[passport]"
+            }) (keyingi o'rinlarda "Kafil" deb nomlanadi)`
+          : ""
+      } ushbu shartnoma asosida quyidagilarga kelishdik.`,
     },
     { heading: "1. Shartnoma mazmuni" },
     {
@@ -394,7 +406,7 @@ function vipContractBody(data) {
       text: "5.13 O'quv muassasasida o'qishni tamomlaganidan so'ng Buyurtmachi Koreya Respublikasini amaldagi qonunchilikka muvofiq qisqa muddat ichida tark etishi lozim. Aks holda Buyurtmachiga nisbatan qat'iy choralar (jarima, hibsga olish, deportatsiya) qo'llanilishi mumkin.",
     },
     {
-      text: "5.14 Shartnomaning 4.5.9, 4.5.10 bandlarini buzganligi uchun Buyurtmachi (va kelishilgan bo'lsa, uning kafili) Bajaruvchi foydasiga shartnomada belgilangan miqdordagi jarima to'lash bo'yicha mulkiy javobgarlikka tortiladi. [Kafil bilan alohida kafillik shartnomasi tuzilmagan bo'lsa, ushbu band faqat Buyurtmachiga nisbatan qo'llaniladi.]",
+      text: "5.14 Shartnomaning 4.5.9, 4.5.10 bandlarini buzganligi uchun Buyurtmachi va uning Kafili Bajaruvchi foydasiga shartnomada belgilangan miqdordagi jarima to'lash bo'yicha birgalikda mulkiy javobgarlikka tortiladilar. Bajaruvchi ko'rsatilgan jarima summasini Kafildan undirishga haqli. Bajaruvchi Kafilni, unga ma'lum bo'lgan, Buyurtmachining ushbu bandlarni buzganligi haqida o'z vaqtida xabardor qilishi lozim.",
     },
     { heading: "6. Fors-major holatlari" },
     {
@@ -434,7 +446,13 @@ function vipContractBody(data) {
     { text: `Pasport/ID: ${data.passportNumber || "[passport]"}` },
     { text: `Tel: ${data.phone || "[telefon]"}` },
     { text: `Manzil: ${data.address || "[manzil]"}` },
-    { signature: true },
+    { signature: true, role: "buyurtmachi" },
+    { heading: "KAFIL" },
+    { text: `F.I.Sh: ${data.guarantor?.fullName || "[F.I.Sh.]"}` },
+    { text: `Buyurtmachiga qarindoshligi: ${data.guarantor?.relationship || "[qarindoshligi]"}` },
+    { text: `Pasport/ID: ${data.guarantor?.passportNumber || "[passport]"}` },
+    { text: `Tel: ${data.guarantor?.phone || "[telefon]"}` },
+    { signature: true, role: "kafil" },
     ...requisitesBlock({
       inn: "305612610",
       xr: "20208000400939842001",

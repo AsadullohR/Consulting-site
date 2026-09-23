@@ -3,20 +3,40 @@ import logo from "/public/One-Consulting-Nobg.png";
 import { tariffs } from "../data/tariffs";
 import PackageStep from "../components/contract/PackageStep";
 import StudentInfoStep from "../components/contract/StudentInfoStep";
+import GuarantorInfoStep from "../components/contract/GuarantorInfoStep";
 import ReviewStep from "../components/contract/ReviewStep";
 import SignaturePad from "../components/contract/SignaturePad";
 import { generateContractPdf } from "../lib/generateContractPdf";
 
-const STEPS = ["package", "info", "review", "sign", "done"];
+// VIP holds the student and their guarantor ("Kafil") jointly liable (see
+// contractTemplate.js), so that tariff gets two extra steps: collecting the
+// guarantor's details and their own signature. Steps are looked up by name
+// (not a fixed index) so switching tariffs mid-flow — e.g. going back and
+// picking Standard after starting VIP — can't leave the wizard pointing at
+// a step that doesn't exist for the newly selected tariff.
+function stepsFor(isVip) {
+  return isVip
+    ? ["package", "info", "guarantor", "review", "sign", "signGuarantor", "done"]
+    : ["package", "info", "review", "sign", "done"];
+}
 
 export default function ContractPage() {
-  const [step, setStep] = useState(0);
+  const [stepIndex, setStepIndex] = useState(0);
   const [tariffId, setTariffId] = useState(null);
   const [studentData, setStudentData] = useState({});
+  const [guarantorData, setGuarantorData] = useState({});
   const [signatureDataUrl, setSignatureDataUrl] = useState(null);
+  const [guarantorSignatureDataUrl, setGuarantorSignatureDataUrl] = useState(null);
   const [agreed, setAgreed] = useState(false);
+  const [guarantorAgreed, setGuarantorAgreed] = useState(false);
   const [generating, setGenerating] = useState(false);
   const [pdfError, setPdfError] = useState(null);
+
+  const printableRef = useRef(null);
+  const tariff = tariffs.find((t) => t.id === tariffId) || null;
+  const isVip = tariff?.id === "vip";
+  const steps = stepsFor(isVip);
+  const step = steps[stepIndex] || steps[0];
 
   // Client-generated reference only — there's no backend/DB here to hand
   // out a real sequential contract register number, so this just needs to
@@ -29,12 +49,15 @@ export default function ContractPage() {
     return `${d}${m}-${rand}`;
   });
 
-  const printableRef = useRef(null);
-  const tariff = tariffs.find((t) => t.id === tariffId) || null;
-  const studentDataWithMeta = { ...studentData, contractNumber };
+  const studentDataWithMeta = {
+    ...studentData,
+    contractNumber,
+    guarantor: isVip ? guarantorData : undefined,
+  };
 
-  function goTo(index) {
-    setStep(Math.max(0, Math.min(STEPS.length - 1, index)));
+  function goToStep(name) {
+    const index = steps.indexOf(name);
+    setStepIndex(index === -1 ? 0 : index);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -47,7 +70,7 @@ export default function ContractPage() {
         .trim()
         .replace(/\s+/g, "_");
       await generateContractPdf(printableRef.current, `${filenameSafeName}_shartnoma.pdf`);
-      goTo(4);
+      goToStep("done");
     } catch (err) {
       setPdfError("PDF yaratishda xatolik yuz berdi. Qaytadan urinib ko'ring.");
       console.error(err);
@@ -55,6 +78,8 @@ export default function ContractPage() {
       setGenerating(false);
     }
   }
+
+  const progressSteps = steps.slice(0, -1);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -68,36 +93,45 @@ export default function ContractPage() {
       <main className="max-w-2xl mx-auto px-4 py-10">
         {/* Step indicator */}
         <div className="flex items-center gap-2 mb-8">
-          {STEPS.slice(0, 4).map((s, i) => (
+          {progressSteps.map((s, i) => (
             <div
               key={s}
               className={`h-1.5 flex-1 rounded-full ${
-                i <= step ? "bg-blue-600" : "bg-gray-200"
+                i <= stepIndex ? "bg-blue-600" : "bg-gray-200"
               }`}
             />
           ))}
         </div>
 
         <div className="bg-white rounded-xl shadow-sm p-6 sm:p-8">
-          {step === 0 && (
+          {step === "package" && (
             <PackageStep
               selectedId={tariffId}
               onSelect={setTariffId}
-              onNext={() => goTo(1)}
+              onNext={() => goToStep("info")}
             />
           )}
 
-          {step === 1 && (
+          {step === "info" && (
             <StudentInfoStep
               data={studentData}
               tariff={tariff}
               onChange={setStudentData}
-              onNext={() => goTo(2)}
-              onBack={() => goTo(0)}
+              onNext={() => goToStep(isVip ? "guarantor" : "review")}
+              onBack={() => goToStep("package")}
             />
           )}
 
-          {step === 2 && (
+          {step === "guarantor" && (
+            <GuarantorInfoStep
+              data={guarantorData}
+              onChange={setGuarantorData}
+              onNext={() => goToStep("review")}
+              onBack={() => goToStep("info")}
+            />
+          )}
+
+          {step === "review" && (
             <div>
               <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-4">
                 Shartnoma matni bilan tanishing
@@ -112,20 +146,39 @@ export default function ContractPage() {
                   onChange={(e) => setAgreed(e.target.checked)}
                   className="mt-1"
                 />
-                <span>Men shartnoma shartlari bilan tanishdim va roziman.</span>
+                <span>
+                  {isVip
+                    ? "Men (Buyurtmachi/Talaba) shartnoma shartlari bilan tanishdim va roziman."
+                    : "Men shartnoma shartlari bilan tanishdim va roziman."}
+                </span>
               </label>
+              {isVip && (
+                <label className="mt-2 flex items-start gap-2 text-sm text-gray-700">
+                  <input
+                    type="checkbox"
+                    checked={guarantorAgreed}
+                    onChange={(e) => setGuarantorAgreed(e.target.checked)}
+                    className="mt-1"
+                  />
+                  <span>
+                    Men (Kafil, {guarantorData.fullName || "kafil"}) shartnoma shartlari,
+                    jumladan 5.14-band bo'yicha birgalikdagi javobgarlik bilan tanishdim va
+                    roziman.
+                  </span>
+                </label>
+              )}
               <div className="mt-8 flex gap-3">
                 <button
                   type="button"
-                  onClick={() => goTo(1)}
+                  onClick={() => goToStep(isVip ? "guarantor" : "info")}
                   className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50"
                 >
                   Orqaga
                 </button>
                 <button
                   type="button"
-                  disabled={!agreed}
-                  onClick={() => goTo(3)}
+                  disabled={!agreed || (isVip && !guarantorAgreed)}
+                  onClick={() => goToStep("sign")}
                   className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Davom etish
@@ -134,24 +187,66 @@ export default function ContractPage() {
             </div>
           )}
 
-          {step === 3 && (
+          {step === "sign" && (
             <div>
               <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-4">
-                Imzo qo'ying
+                {isVip ? "Talaba imzosi" : "Imzo qo'ying"}
               </h2>
               <SignaturePad onChange={setSignatureDataUrl} />
+              {!isVip && pdfError && <p className="mt-3 text-sm text-red-600">{pdfError}</p>}
+              <div className="mt-8 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => goToStep("review")}
+                  className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50"
+                >
+                  Orqaga
+                </button>
+                {isVip ? (
+                  <button
+                    type="button"
+                    disabled={!signatureDataUrl}
+                    onClick={() => goToStep("signGuarantor")}
+                    className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    Davom etish
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    disabled={!signatureDataUrl || generating}
+                    onClick={handleGeneratePdf}
+                    className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    {generating ? "Tayyorlanmoqda..." : "Shartnomani yuklab olish"}
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+          {step === "signGuarantor" && (
+            <div>
+              <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-1">
+                Kafil imzosi
+              </h2>
+              <p className="text-sm text-gray-500 mb-4">
+                Endi kafil ({guarantorData.fullName || "kafil"}) shu qurilmada o'z imzosini
+                qo'ysin.
+              </p>
+              <SignaturePad onChange={setGuarantorSignatureDataUrl} />
               {pdfError && <p className="mt-3 text-sm text-red-600">{pdfError}</p>}
               <div className="mt-8 flex gap-3">
                 <button
                   type="button"
-                  onClick={() => goTo(2)}
+                  onClick={() => goToStep("sign")}
                   className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50"
                 >
                   Orqaga
                 </button>
                 <button
                   type="button"
-                  disabled={!signatureDataUrl || generating}
+                  disabled={!guarantorSignatureDataUrl || generating}
                   onClick={handleGeneratePdf}
                   className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
@@ -161,7 +256,7 @@ export default function ContractPage() {
             </div>
           )}
 
-          {step === 4 && (
+          {step === "done" && (
             <div className="text-center py-8">
               <div className="text-5xl mb-4">✅</div>
               <h2 className="text-xl font-bold mb-2">Shartnoma tayyor!</h2>
@@ -181,13 +276,14 @@ export default function ContractPage() {
       </main>
 
       {/* Off-screen printable version used only to render the PDF snapshot.
-          Kept in sync with the same data the student reviewed on-screen. */}
+          Kept in sync with the same data reviewed on-screen. */}
       <div className="fixed -left-[9999px] top-0" aria-hidden="true">
         <ReviewStep
           ref={printableRef}
           studentData={studentDataWithMeta}
           tariff={tariff}
           signatureDataUrl={signatureDataUrl}
+          guarantorSignatureDataUrl={guarantorSignatureDataUrl}
           printable
         />
       </div>

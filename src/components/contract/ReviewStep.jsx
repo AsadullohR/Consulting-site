@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { getContractDocuments } from "../../data/contractTemplate";
 
-function Block({ block, signatureDataUrl, studentName }) {
+function Block({ block, signatureDataUrl, guarantorSignatureDataUrl, studentName, guarantorName }) {
   if (block.heading) {
     return <h2 className="text-lg font-bold mt-6 mb-2">{block.heading}</h2>;
   }
@@ -13,17 +13,20 @@ function Block({ block, signatureDataUrl, studentName }) {
         </div>
       );
     }
+    const isKafil = block.role === "kafil";
+    const dataUrl = isKafil ? guarantorSignatureDataUrl : signatureDataUrl;
+    const name = isKafil ? guarantorName : studentName;
     return (
       <div className="mt-4 mb-2">
         <p className="text-sm font-medium text-gray-700 mb-2">Imzo:</p>
-        {signatureDataUrl ? (
-          <img src={signatureDataUrl} alt="Imzo" className="h-20" />
+        {dataUrl ? (
+          <img src={dataUrl} alt="Imzo" className="h-20" />
         ) : (
           <div className="h-20 w-56 border border-dashed border-gray-300 flex items-center justify-center text-gray-400 text-xs">
             Imzo hali qo'yilmagan
           </div>
         )}
-        <p className="mt-1 text-sm text-gray-600">{studentName}</p>
+        <p className="mt-1 text-sm text-gray-600">{name}</p>
       </div>
     );
   }
@@ -33,10 +36,11 @@ function Block({ block, signatureDataUrl, studentName }) {
 // forwardRef so the parent wizard can hand this exact DOM node to
 // html2canvas when generating the PDF — what's rendered here is exactly
 // what ends up in the downloaded contract. Renders every document that
-// applies to the selected tariff (Standard = 2 documents, VIP = 1),
-// separated by a page-break div so each starts on its own PDF page.
+// applies to the selected tariff (Standard = 2 documents; VIP = 1 document,
+// with its own "kafil"-role signature block for the guarantor), separated
+// by a divider so each starts visually distinct in the flattened PDF.
 const ReviewStep = forwardRef(function ReviewStep(
-  { studentData, tariff, signatureDataUrl, printable = false },
+  { studentData, tariff, signatureDataUrl, guarantorSignatureDataUrl, printable = false },
   ref
 ) {
   const date = new Date().toLocaleDateString("sv-SE");
@@ -56,7 +60,9 @@ const ReviewStep = forwardRef(function ReviewStep(
               key={i}
               block={block}
               signatureDataUrl={signatureDataUrl}
+              guarantorSignatureDataUrl={guarantorSignatureDataUrl}
               studentName={studentData.fullName}
+              guarantorName={studentData.guarantor?.fullName}
             />
           ))}
         </div>
