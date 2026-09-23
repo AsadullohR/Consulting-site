@@ -1,6 +1,25 @@
 /* @tailwind directives removed because Tailwind CSS is not being processed */
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
 .result-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 10px 10px 10px rgba(59, 130, 246, 0.3);
