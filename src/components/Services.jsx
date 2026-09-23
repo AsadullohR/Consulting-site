@@ -1,8 +1,15 @@
+import {
+  ScholarshipIcon,
+  AdmissionIcon,
+  VisaIcon,
+  CoursesIcon,
+} from "./icons";
+
 const features = [
-  { title: "Scholarships & Funding", icon: "🎓" },
-  { title: "Addmission Support", icon: "🏛️" },
-  { title: "Professional Support with Visas", icon: "🛂" },
-  { title: "Courses and language training", icon: "📘" },
+  { title: "Scholarships & Funding", Icon: ScholarshipIcon },
+  { title: "Admission Support", Icon: AdmissionIcon },
+  { title: "Professional Support with Visas", Icon: VisaIcon },
+  { title: "Courses and language training", Icon: CoursesIcon },
 ];
 
 export default function Services() {
@@ -12,9 +19,11 @@ export default function Services() {
         {features.map((f, i) => (
           <div
             key={i}
-            className="flex flex-col items-center text-center p-6 border rounded-lg shadow-sm hover:shadow-lg transition"
+            className="flex flex-col items-center text-center p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg hover:border-blue-200 transition"
           >
-            <div className="text-4xl mb-4">{f.icon}</div>
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+              <f.Icon className="h-6 w-6" />
+            </div>
             <h3 className="text-xl font-semibold">{f.title}</h3>
           </div>
         ))}

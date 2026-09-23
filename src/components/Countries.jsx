@@ -23,7 +23,7 @@ const serviceCards = [
 export default function Countries() {
   return (
     <section id="countries" className="py-16 bg-gray-50 px-6 md:px-20">
-      <h2 className="text-3xl font-bold text-center mb-2 text-blue-600">
+      <h2 className="text-4xl font-bold text-center mb-2 text-blue-600">
         Our directions
       </h2>
       <p className="text-center max-w-2xl mx-auto mb-32 text-gray-700 px-4">
