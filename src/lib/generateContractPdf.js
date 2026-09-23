@@ -7,6 +7,15 @@ import html2canvas from "html2canvas-pro";
 // characters (oʻ, gʻ, etc.) always match whatever is on screen instead of
 // depending on a manually embedded font.
 export async function generateContractPdf(node, filename) {
+  // html2canvas rasterizes whatever is painted right now — if the Sora /
+  // Plus Jakarta Sans webfonts (loaded via Google Fonts, index.html) are
+  // still downloading when a fast signer hits "download", it silently
+  // bakes in the fallback system font instead. document.fonts.ready
+  // resolves once every requested face has actually loaded.
+  if (document.fonts?.ready) {
+    await document.fonts.ready;
+  }
+
   const canvas = await html2canvas(node, {
     scale: 1.5,
     useCORS: true,
