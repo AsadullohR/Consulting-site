@@ -1,4 +1,17 @@
+import { useEffect } from "react";
+
 export default function InstagramSection() {
+  useEffect(() => {
+    // A <script> tag written in JSX is inserted via the DOM, not parsed by
+    // the browser, so it never actually loads — this appends it for real so
+    // LightWidget's grid/resize JS runs.
+    if (document.querySelector('script[src*="lightwidget.js"]')) return;
+    const script = document.createElement("script");
+    script.src = "https://cdn.lightwidget.com/widgets/lightwidget.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <section className="py-16 px-6 md:px-20 bg-gray-50">
       <div className="max-w-6xl mx-auto text-center">
@@ -12,7 +25,6 @@ export default function InstagramSection() {
 
         {/* LightWidget iframe */}
         <div className="w-full h-[13rem] md:h-[42.5rem] overflow-hidden rounded-xl shadow-lg">
-          <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
           <iframe
             src="https://cdn.lightwidget.com/widgets/1b589885410d5cc29a4bc177a786ca45.html"
             scrolling="no"
