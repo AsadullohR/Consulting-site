@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "/public/One-Consulting-Nobg.png";
 
 export default function Header() {
@@ -23,6 +24,9 @@ export default function Header() {
         <a href="#contact" className="hover:text-blue-600">
           Contact
         </a>
+        <Link to="/contract" className="hover:text-blue-600">
+          Sign Contract
+        </Link>
       </nav>
       <a
         href="#contact"
