@@ -1,9 +1,14 @@
+import { PinIcon, PhoneIcon, MailIcon } from "./icons";
+
 export default function ContactForm() {
   return (
     <section id="contact" className="py-16 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-blue-600">
-          Contact Us
+        <p className="text-center uppercase tracking-[0.2em] text-blue-600 text-xs font-semibold mb-3">
+          Contact
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-950">
+          Let's talk about your future
         </h2>
 
         {/* Grid Layout: 2 columns on md+, stacked on mobile */}
@@ -53,18 +58,27 @@ export default function ContactForm() {
               Have questions about studying or working abroad? Reach out to us.
             </p>
 
-            <div className="space-y-3">
-              <p>
-                <span className="font-semibold">📍 Address: </span>
-                Amir Temur Avenue 1B, Andijan, Uzbekistan
+            <div className="space-y-4">
+              <p className="flex items-start gap-3">
+                <PinIcon className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
+                <span>
+                  <span className="font-semibold">Address: </span>
+                  Amir Temur Avenue 1B, Andijan, Uzbekistan
+                </span>
               </p>
-              <p>
-                <span className="font-semibold">📞 Phone: </span>
-                +998 (91) 609 33 77
+              <p className="flex items-center gap-3">
+                <PhoneIcon className="h-5 w-5 text-blue-600 shrink-0" />
+                <span>
+                  <span className="font-semibold">Phone: </span>
+                  +998 (91) 609 33 77
+                </span>
               </p>
-              <p>
-                <span className="font-semibold">✉️ Email: </span>
-                info@oneconsulting.uz
+              <p className="flex items-center gap-3">
+                <MailIcon className="h-5 w-5 text-blue-600 shrink-0" />
+                <span>
+                  <span className="font-semibold">Email: </span>
+                  info@oneconsulting.uz
+                </span>
               </p>
             </div>
 

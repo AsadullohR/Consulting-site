@@ -49,3 +49,29 @@ export function CoursesIcon(props) {
     </svg>
   );
 }
+
+export function PinIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z" />
+      <circle cx="12" cy="9" r="2.5" />
+    </svg>
+  );
+}
+
+export function PhoneIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 5c0 8.837 7.163 16 16 16h1a1 1 0 0 0 1-1v-2.764a1 1 0 0 0-.553-.894l-3.523-1.762a1 1 0 0 0-1.213.263l-1.088 1.36a1 1 0 0 1-1.276.264 12.06 12.06 0 0 1-4.814-4.814 1 1 0 0 1 .264-1.276l1.36-1.088a1 1 0 0 0 .263-1.213L8.658 4.553A1 1 0 0 0 7.764 4H5a1 1 0 0 0-1 1Z" />
+    </svg>
+  );
+}
+
+export function MailIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}

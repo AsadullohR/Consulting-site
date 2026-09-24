@@ -26,7 +26,10 @@ export default function About() {
   return (
     <section id="about" className="py-20 px-6 md:px-20 bg-gray-50">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4 text-blue-600">
+        <p className="uppercase tracking-[0.2em] text-blue-600 text-xs font-semibold mb-3">
+          About Us
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-950">
           Meet the Minds Behind Your Journey
         </h2>
         <p className="text-lg mb-6 text-gray-700">
@@ -63,7 +66,7 @@ export default function About() {
           <div className="text-lg text-gray-700 max-w-3xl mx-auto transition">
             <p className="mb-4">
               One Academy & Consulting was founded in 2018! And so far, it has
-              helped more than 1,000 young people study abroad — in Europe,
+              helped more than 1,100 young people study abroad — in Europe,
               South Korea, Turkey, and China!
             </p>
             <p>
