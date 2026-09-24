@@ -1,4 +1,5 @@
 import { motion as Motion, useReducedMotion } from "motion/react";
+import europe from "/src/assets/countries/europe.svg";
 import turkey from "/src/assets/countries/turkey.png";
 import korea from "/src/assets/countries/south-korea.png";
 import china from "/src/assets/countries/china.png";
@@ -6,9 +7,9 @@ import { staggerContainer, staggerItem } from "../lib/motionVariants";
 
 const serviceCards = [
   {
-    title: "Study in Turkey",
-    desc: "Top universities, language courses, visa help",
-    img: turkey, // use real images later
+    title: "Study in Europe",
+    desc: "Partner universities across the EU, scholarships and full visa support",
+    img: europe,
   },
   {
     title: "Study in South Korea",
@@ -16,11 +17,15 @@ const serviceCards = [
     img: korea,
   },
   {
+    title: "Study in Turkey",
+    desc: "Top universities, language courses, visa help",
+    img: turkey,
+  },
+  {
     title: "Study in China",
     desc: "Scholarships & short-term & long-term programs",
     img: china,
   },
-  // add more
 ];
 
 export default function Countries() {
@@ -36,7 +41,7 @@ export default function Countries() {
         some of them.
       </p>
       <Motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         variants={reduceMotion ? undefined : staggerContainer}
         initial={reduceMotion ? undefined : "hidden"}
         whileInView={reduceMotion ? undefined : "visible"}

@@ -63,7 +63,8 @@ export default function About() {
           <div className="text-lg text-gray-700 max-w-3xl mx-auto transition">
             <p className="mb-4">
               One Academy & Consulting was founded in 2018! And so far, it has
-              helped more than 1,000 young people study in Korea!
+              helped more than 1,000 young people study abroad — in Europe,
+              South Korea, Turkey, and China!
             </p>
             <p>
               Our mission is to make studying abroad accessible: from finding
