@@ -1,5 +1,28 @@
 import { motion as Motion, useReducedMotion } from "motion/react";
 
+const destinations = ["Europe", "South Korea", "Turkey", "China"];
+
+// A small map-pin mark for each destination pill — SVG instead of a flag
+// emoji, since flag glyphs render as bare two-letter fallback text on a
+// lot of real-world setups (older Windows, some Linux, some headless/CI
+// browsers) rather than the actual flag.
+function PinIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z" />
+      <circle cx="12" cy="9" r="2.5" />
+    </svg>
+  );
+}
+
 export default function Hero() {
   const reduceMotion = useReducedMotion();
 
@@ -27,12 +50,26 @@ export default function Hero() {
         >
           Study Abroad with Confidence{" "}
         </Motion.h1>
-        <Motion.p {...fadeUp(0.12)} className="text-lg md:text-xl mb-8">
-          Scholarships up to 100% • Universities worldwide • Full visa and
-          admission support
+        <Motion.p {...fadeUp(0.12)} className="text-lg md:text-xl mb-6">
+          Scholarships up to 100% • Europe, South Korea, Turkey & China •
+          Full visa and admission support
         </Motion.p>
+        <Motion.div
+          {...fadeUp(0.18)}
+          className="flex flex-wrap justify-center gap-2 mb-8"
+        >
+          {destinations.map((label) => (
+            <span
+              key={label}
+              className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-3 py-1 text-sm font-medium"
+            >
+              <PinIcon className="h-3.5 w-3.5" aria-hidden="true" />
+              {label}
+            </span>
+          ))}
+        </Motion.div>
         <Motion.form
-          {...fadeUp(0.24)}
+          {...fadeUp(0.3)}
           name="hero-lead"
           method="POST"
           data-netlify="true"
