@@ -26,9 +26,9 @@ export default function GuarantorInfoStep({ data, onChange, onNext, onBack }) {
 
   return (
     <div>
-      <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-1">
+      <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-1">
         Kafil ma'lumotlari
-      </h2>
+      </p>
       <p className="text-sm text-gray-500 mb-4">
         VIP tarif bo'yicha shartnomada talaba bilan birga kafil (odatda ota-ona) ham
         imzo qo'yadi va shartnoma shartlari uchun birgalikda javobgar bo'ladi.

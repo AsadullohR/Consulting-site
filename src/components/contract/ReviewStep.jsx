@@ -1,6 +1,11 @@
 import { forwardRef } from "react";
 import { getContractDocuments } from "../../data/contractTemplate";
 
+// data-pdf-block marks every element that must not be sliced in half when
+// generateContractPdf.js paginates the rasterized canvas — see that file
+// for how the block list is used. data-pdf-block="heading" additionally
+// tells it to avoid stranding a heading alone at the very bottom of a page
+// with its content pushed to the next one.
 function Block({
   block,
   isTitle,
@@ -13,20 +18,29 @@ function Block({
   if (block.heading) {
     if (isTitle) {
       return (
-        <h1 className="text-2xl font-bold text-center leading-snug mb-1">
+        <h1
+          data-pdf-block="heading"
+          className="text-2xl font-bold text-center leading-snug mb-1"
+        >
           {block.heading}
         </h1>
       );
     }
     if (isSubtitle) {
       return (
-        <h2 className="text-lg font-semibold text-center text-gray-700 mb-6">
+        <h2
+          data-pdf-block="heading"
+          className="text-lg font-semibold text-center text-gray-700 mb-6"
+        >
           {block.heading}
         </h2>
       );
     }
     return (
-      <h2 className="text-base font-bold uppercase tracking-wide mt-8 mb-3 pb-1 border-b border-gray-200">
+      <h2
+        data-pdf-block="heading"
+        className="text-base font-bold uppercase tracking-wide mt-8 mb-3 pb-1 border-b border-gray-200"
+      >
         {block.heading}
       </h2>
     );
@@ -34,7 +48,7 @@ function Block({
   if (block.signature) {
     if (block.executorOnly) {
       return (
-        <div className="mt-4 mb-6">
+        <div data-pdf-block="text" className="mt-4 mb-6">
           <p className="text-sm text-gray-600">Imzo: ____________________</p>
         </div>
       );
@@ -43,7 +57,7 @@ function Block({
     const dataUrl = isKafil ? guarantorSignatureDataUrl : signatureDataUrl;
     const name = isKafil ? guarantorName : studentName;
     return (
-      <div className="mt-4 mb-6">
+      <div data-pdf-block="text" className="mt-4 mb-6">
         <p className="text-sm font-medium text-gray-700 mb-2">Imzo:</p>
         {dataUrl ? (
           <img src={dataUrl} alt="Imzo" className="h-20" />
@@ -57,7 +71,10 @@ function Block({
     );
   }
   return (
-    <p className="whitespace-pre-line leading-7 text-gray-800 mb-3">
+    <p
+      data-pdf-block="text"
+      className="whitespace-pre-line leading-7 text-gray-800 mb-3"
+    >
       {block.text}
     </p>
   );

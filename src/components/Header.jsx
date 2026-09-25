@@ -9,9 +9,9 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center gap-3 p-3 px-2 sm:px-10 shadow-md bg-white sticky top-0 z-50">
       <a href="/" className="flex items-center gap-2 shrink-0">
-        <img src={badge} alt="One Consulting" className="h-10 w-10 object-contain" />
+        <img src={badge} alt="One Academy & Consulting" className="h-10 w-10 object-contain" />
         <span className="font-display font-bold text-blue-950 leading-tight text-sm sm:text-base">
-          Consulting & Academy
+          Academy & Consulting
         </span>
       </a>
       <nav className="space-x-5 font-semibold hidden lg:block whitespace-nowrap">
