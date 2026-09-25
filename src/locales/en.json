@@ -1,0 +1,155 @@
+{
+  "header": {
+    "partners": "Partners",
+    "about": "About Us",
+    "services": "Services",
+    "countries": "Countries",
+    "results": "Results",
+    "contact": "Contact",
+    "signContract": "Sign Contract",
+    "freeConsultation": "Free Consultation"
+  },
+  "hero": {
+    "kicker": "Study Abroad Consultancy · Andijon",
+    "titleLine1": "Study Abroad",
+    "titleLine2": "with Confidence.",
+    "subtitle": "We connect students across Uzbekistan with top universities in Europe, South Korea, Turkey, and China — from first consultation to arrival.",
+    "destinations": {
+      "europe": "Europe",
+      "southKorea": "South Korea",
+      "turkey": "Turkey",
+      "china": "China"
+    },
+    "namePlaceholder": "Your Name",
+    "phonePlaceholder": "Phone Number",
+    "submit": "Get a consultation",
+    "scroll": "Scroll",
+    "stats": {
+      "students": "Students placed abroad",
+      "universities": "Partner universities",
+      "destinationsLabel": "Study destinations",
+      "visaRate": "Visa success rate"
+    }
+  },
+  "partners": {
+    "kicker": "Trusted By",
+    "title": "Our partners",
+    "subtitle": "We cooperate with the best and most reliable organizations to ensure top-notch services for our clients."
+  },
+  "about": {
+    "kicker": "About Us",
+    "title": "Meet the Minds Behind Your Journey",
+    "subtitle": "Our team of passionate experts is here to guide, support, and inspire you every step of the way.",
+    "tabAbout": "About Us",
+    "tabTeam": "Our Team",
+    "paragraph1": "One Academy & Consulting was founded in 2018! And so far, it has helped more than 1,100 young people study abroad — in Europe, South Korea, Turkey, and China!",
+    "paragraph2": "Our mission is to make studying abroad accessible: from finding scholarships to visa support and student adaptation.",
+    "roles": {
+      "ceo": "CEO",
+      "manager": "Manager",
+      "visaSpecialist": "Visa Specialist"
+    }
+  },
+  "countries": {
+    "kicker": "Destinations",
+    "title": "Where will you write your story?",
+    "subtitle": "Our customers get to study in the best parts of the world, below are some of them.",
+    "cards": {
+      "europe": {
+        "title": "Europe",
+        "city": "Prague & partner cities",
+        "desc": "Partner universities across the EU, scholarships and full visa support"
+      },
+      "southKorea": {
+        "title": "South Korea",
+        "city": "Seoul",
+        "desc": "Scholarships & short-term & long-term programs"
+      },
+      "turkey": {
+        "title": "Turkey",
+        "city": "Istanbul",
+        "desc": "Top universities, language courses, visa help"
+      },
+      "china": {
+        "title": "China",
+        "city": "Beijing",
+        "desc": "Scholarships & short-term & long-term programs"
+      }
+    }
+  },
+  "howItWorks": {
+    "kicker": "Process",
+    "title": "From dream to departure",
+    "steps": {
+      "consultation": {
+        "title": "Free Consultation",
+        "desc": "Tell us your goals, budget, and preferred destination. We listen before we advise."
+      },
+      "selection": {
+        "title": "University Selection",
+        "desc": "We match you with accredited programs that fit your academic profile and ambitions."
+      },
+      "documents": {
+        "title": "Document Preparation",
+        "desc": "We guide you through every form, translation, and notarization required."
+      },
+      "visa": {
+        "title": "Application & Visa",
+        "desc": "We submit your application and handle the visa process from start to approval."
+      },
+      "departure": {
+        "title": "Pre-Departure",
+        "desc": "Flight booking, airport pickup, and SIM card so you arrive ready (VIP tariff)."
+      }
+    }
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "Full-spectrum support",
+    "subtitle": "We don't just recommend universities — we walk beside you from the first conversation to your first class.",
+    "items": {
+      "scholarships": "Scholarships & Funding",
+      "admission": "Admission Support",
+      "visa": "Professional Support with Visas",
+      "courses": "Courses and language training"
+    }
+  },
+  "results": {
+    "kicker": "Proof",
+    "title": "Our results",
+    "subtitle": "Our customers got accepted into best universities and programs, below are some of them."
+  },
+  "instagram": {
+    "title": "Our Latest Updates",
+    "subtitle": "Follow us on Instagram to see our latest student results, visas, and events.",
+    "cta": "Visit our Instagram →"
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Let's talk about your future",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "submit": "Submit",
+    "getInTouch": "Get in Touch",
+    "getInTouchDesc": "Have questions about studying or working abroad? Reach out to us.",
+    "address": "Address:",
+    "addressValue": "Amir Temur Avenue 1B, Andijan, Uzbekistan",
+    "phone": "Phone:",
+    "email": "Email:"
+  },
+  "footer": {
+    "blurb": "Andijon's trusted study abroad partner since 2018. We turn ambition into opportunity, one student at a time.",
+    "destinationsKicker": "Destinations",
+    "quickLinksKicker": "Quick Links",
+    "quickLinks": {
+      "destinations": "Destinations",
+      "services": "Services",
+      "results": "Results",
+      "contact": "Contact"
+    },
+    "rights": "All rights reserved.",
+    "instagram": "Instagram",
+    "telegram": "Telegram"
+  }
+}

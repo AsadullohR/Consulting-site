@@ -3,6 +3,7 @@ import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Reveal from "./Reveal";
+import { useTranslation } from "react-i18next";
 import visa1 from "../assets/visas/8. MAKHMUDOV ZIKRULLOKH_page-0001.jpg";
 import visa2 from "../assets/visas/9. MUYDINOV BEKZODBEK_page-0001.jpg";
 import visa3 from "../assets/visas/10. SODIKJONOV MUKHAMMADSOBIR_page-0001.jpg";
@@ -28,14 +29,18 @@ const visas = [
 ];
 
 export default function VisaResults() {
+  const { t } = useTranslation();
+
   return (
     <section id="results" className="py-20 bg-white">
-      <h2 className="text-4xl font-bold text-center mb-2 text-blue-600">
-        Our results
+      <p className="text-center uppercase tracking-[0.2em] text-blue-600 text-xs font-semibold mb-3">
+        {t("results.kicker")}
+      </p>
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-blue-950">
+        {t("results.title")}
       </h2>
       <p className="text-center max-w-2xl mx-auto mb-10 text-gray-700 px-4">
-        Our customers got accepted into best universities and programs, below
-        are some of them.
+        {t("results.subtitle")}
       </p>
 
       <Reveal className="max-w-none sm:max-w-6xl mx-auto px-4">

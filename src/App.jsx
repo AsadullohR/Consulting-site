@@ -9,6 +9,7 @@ import PartnersCarousel from "./components/PartnersCarousel";
 import Services from "./components/Services";
 import VisaResults from "./components/VisaResults";
 import InstagramSection from "./components/InstagramSection";
+import HowItWorks from "./components/HowItWorks";
 import Reveal from "./components/Reveal";
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
       <Reveal>
         <About />
       </Reveal>
-      <Services />
       <Countries />
+      <HowItWorks />
+      <Services />
       <VisaResults />
       <Reveal>
         <InstagramSection />
