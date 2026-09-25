@@ -1,14 +1,17 @@
+import { useTranslation } from "react-i18next";
 import { PinIcon, PhoneIcon, MailIcon } from "./icons";
 
 export default function ContactForm() {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="py-16 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <p className="text-center uppercase tracking-[0.2em] text-blue-600 text-xs font-semibold mb-3">
-          Contact
+          {t("contact.kicker")}
         </p>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-950">
-          Let's talk about your future
+          {t("contact.title")}
         </h2>
 
         {/* Grid Layout: 2 columns on md+, stacked on mobile */}
@@ -25,58 +28,56 @@ export default function ContactForm() {
               className="w-full p-3 border rounded"
               type="text"
               name="name"
-              placeholder="Your Name"
+              placeholder={t("contact.namePlaceholder")}
               required
             />
             <input
               className="w-full p-3 border rounded"
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder={t("contact.emailPlaceholder")}
               required
             />
             <textarea
               className="w-full p-3 border rounded"
               name="message"
               rows="5"
-              placeholder="Your Message"
+              placeholder={t("contact.messagePlaceholder")}
             ></textarea>
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
             >
-              Submit
+              {t("contact.submit")}
             </button>
           </form>
 
           {/* Contact Information */}
           <div className="bg-white shadow-md p-8 rounded-lg flex flex-col justify-center">
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-              Get in Touch
+              {t("contact.getInTouch")}
             </h3>
-            <p className="text-gray-600 mb-4">
-              Have questions about studying or working abroad? Reach out to us.
-            </p>
+            <p className="text-gray-600 mb-4">{t("contact.getInTouchDesc")}</p>
 
             <div className="space-y-4">
               <p className="flex items-start gap-3">
                 <PinIcon className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
                 <span>
-                  <span className="font-semibold">Address: </span>
-                  Amir Temur Avenue 1B, Andijan, Uzbekistan
+                  <span className="font-semibold">{t("contact.address")} </span>
+                  {t("contact.addressValue")}
                 </span>
               </p>
               <p className="flex items-center gap-3">
                 <PhoneIcon className="h-5 w-5 text-blue-600 shrink-0" />
                 <span>
-                  <span className="font-semibold">Phone: </span>
+                  <span className="font-semibold">{t("contact.phone")} </span>
                   +998 (91) 609 33 77
                 </span>
               </p>
               <p className="flex items-center gap-3">
                 <MailIcon className="h-5 w-5 text-blue-600 shrink-0" />
                 <span>
-                  <span className="font-semibold">Email: </span>
+                  <span className="font-semibold">{t("contact.email")} </span>
                   info@oneconsulting.uz
                 </span>
               </p>

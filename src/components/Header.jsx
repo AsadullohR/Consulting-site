@@ -1,39 +1,51 @@
 import { Link } from "react-router-dom";
-import logo from "/public/One-Consulting-Nobg.png";
+import { useTranslation } from "react-i18next";
+import badge from "../assets/one-badge-logo.png";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
+  const { t } = useTranslation();
+
   return (
-    <header className="flex justify-between items-center p-3 px-2 sm:px-18 shadow-md bg-white sticky top-0 z-50">
-      <img src={logo} alt="Logo" className="h-15 w-45 sm:w-60 object-contain" />
+    <header className="flex justify-between items-center gap-3 p-3 px-2 sm:px-10 shadow-md bg-white sticky top-0 z-50">
+      <a href="/" className="flex items-center gap-2 shrink-0">
+        <img src={badge} alt="One Consulting" className="h-10 w-10 object-contain" />
+        <span className="font-display font-bold text-blue-950 leading-tight text-sm sm:text-base">
+          Consulting & Academy
+        </span>
+      </a>
       <nav className="space-x-5 font-semibold hidden lg:block whitespace-nowrap">
         <a href="#partners" className="hover:text-blue-600">
-          Partners
+          {t("header.partners")}
         </a>
         <a href="#about" className="hover:text-blue-600">
-          About Us
+          {t("header.about")}
         </a>
         <a href="#services" className="hover:text-blue-600">
-          Services
+          {t("header.services")}
         </a>
         <a href="#countries" className="hover:text-blue-600">
-          Countries
+          {t("header.countries")}
         </a>
         <a href="#results" className="hover:text-blue-600">
-          Results
+          {t("header.results")}
         </a>
         <a href="#contact" className="hover:text-blue-600">
-          Contact
+          {t("header.contact")}
         </a>
         <Link to="/contract" className="hover:text-blue-600">
-          Sign Contract
+          {t("header.signContract")}
         </Link>
       </nav>
-      <a
-        href="#contact"
-        className="bg-blue-600 text-white px-2 sm:px-4 py-2 rounded-lg hover:bg-blue-700"
-      >
-        Free Consultation
-      </a>
+      <div className="flex items-center gap-3 shrink-0">
+        <LanguageSwitcher className="hidden sm:inline-flex" />
+        <a
+          href="#contact"
+          className="bg-blue-600 text-white px-2 sm:px-4 py-2 rounded-lg hover:bg-blue-700 whitespace-nowrap"
+        >
+          {t("header.freeConsultation")}
+        </a>
+      </div>
     </header>
   );
 }

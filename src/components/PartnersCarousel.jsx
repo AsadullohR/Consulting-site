@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { useTranslation } from "react-i18next";
 import img1 from "/src/assets/partners/anyang.webp";
 import img2 from "/src/assets/partners/gunjang.svg";
 import img3 from "/src/assets/partners/chungbuk.png";
@@ -31,17 +32,18 @@ const partners = [
 ];
 
 export default function PartnersCarousel() {
+  const { t } = useTranslation();
+
   return (
     <section id="partners" className="py-16 bg-gray-50">
       <p className="text-center uppercase tracking-[0.2em] text-blue-600 text-xs font-semibold mb-3">
-        Trusted By
+        {t("partners.kicker")}
       </p>
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-blue-950">
-        Our partners
+        {t("partners.title")}
       </h2>
       <p className="text-center max-w-2xl mx-auto mb-10 text-gray-700 px-4">
-        We cooperate with the best and most reliable organizations to ensure
-        top-notch services for our clients.
+        {t("partners.subtitle")}
       </p>
       <Swiper
         spaceBetween={30}

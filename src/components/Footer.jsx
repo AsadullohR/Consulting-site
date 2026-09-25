@@ -1,37 +1,34 @@
-import logo from "/public/One-Consulting-Nobg.png";
-
-const destinations = ["Europe", "South Korea", "Turkey", "China"];
-const quickLinks = [
-  { href: "#countries", label: "Destinations" },
-  { href: "#services", label: "Services" },
-  { href: "#results", label: "Results" },
-  { href: "#contact", label: "Contact" },
-];
+import { useTranslation } from "react-i18next";
+import badge from "../assets/one-badge-logo.png";
 
 export default function Footer() {
+  const { t } = useTranslation();
+  const destinations = t("hero.destinations", { returnObjects: true });
+  const quickLinks = [
+    { href: "#countries", label: t("footer.quickLinks.destinations") },
+    { href: "#services", label: t("footer.quickLinks.services") },
+    { href: "#results", label: t("footer.quickLinks.results") },
+    { href: "#contact", label: t("footer.quickLinks.contact") },
+  ];
+
   return (
     <footer className="bg-blue-950 text-blue-100">
       <div className="max-w-6xl mx-auto px-6 md:px-20 py-14 grid grid-cols-1 sm:grid-cols-3 gap-10">
         <div>
-          <div className="inline-block bg-white rounded-lg px-3 py-2 mb-4">
-            <img
-              src={logo}
-              alt="One Consulting"
-              className="h-10 object-contain"
-            />
-          </div>
-          <p className="text-sm text-blue-200 max-w-xs">
-            Andijon's trusted study abroad partner since 2018. We turn
-            ambition into opportunity, one student at a time.
-          </p>
+          <img
+            src={badge}
+            alt="One Consulting"
+            className="h-14 w-14 object-contain mb-4"
+          />
+          <p className="text-sm text-blue-200 max-w-xs">{t("footer.blurb")}</p>
         </div>
 
         <div>
           <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-4">
-            Destinations
+            {t("footer.destinationsKicker")}
           </p>
           <ul className="space-y-2 text-sm">
-            {destinations.map((d) => (
+            {Object.values(destinations).map((d) => (
               <li key={d}>
                 <a href="#countries" className="hover:text-white transition">
                   {d}
@@ -43,7 +40,7 @@ export default function Footer() {
 
         <div>
           <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-4">
-            Quick Links
+            {t("footer.quickLinksKicker")}
           </p>
           <ul className="space-y-2 text-sm">
             {quickLinks.map((l) => (
@@ -60,8 +57,8 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 md:px-20 py-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-blue-300">
           <p>
-            &copy; {new Date().getFullYear()} One Academy & Consulting. All
-            rights reserved.
+            &copy; {new Date().getFullYear()} One Academy & Consulting.{" "}
+            {t("footer.rights")}
           </p>
           <div className="flex gap-4">
             <a
@@ -70,7 +67,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Instagram
+              {t("footer.instagram")}
             </a>
             <a
               href="https://t.me/one_consultinguz"
@@ -78,7 +75,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Telegram
+              {t("footer.telegram")}
             </a>
           </div>
         </div>
