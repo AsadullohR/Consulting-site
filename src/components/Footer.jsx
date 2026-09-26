@@ -17,7 +17,7 @@ export default function Footer() {
         <div>
           <img
             src={badge}
-            alt="One Consulting"
+            alt="One Academy & Consulting"
             className="h-14 w-14 object-contain mb-4"
           />
           <p className="text-sm text-blue-200 max-w-xs">{t("footer.blurb")}</p>
