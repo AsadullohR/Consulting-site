@@ -3,9 +3,9 @@ import { tariffs } from "../../data/tariffs";
 export default function PackageStep({ selectedId, onSelect, onNext }) {
   return (
     <div>
-      <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-4">
+      <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-4">
         Qaysi tarif bo'yicha shartnoma tuzasiz?
-      </h2>
+      </p>
       <div className="space-y-4">
         {tariffs.map((t) => (
           <button

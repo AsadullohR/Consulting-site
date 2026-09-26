@@ -10,7 +10,7 @@ export default function LanguageSwitcher({ className = "" }) {
       role="group"
       aria-label="Language"
     >
-      {["en", "ru"].map((lng) => (
+      {["uz", "ru", "en"].map((lng) => (
         <button
           key={lng}
           type="button"

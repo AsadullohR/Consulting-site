@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import logo from "/public/One-Consulting-Nobg.png";
+import badge from "../assets/one-badge-logo.png";
 import { tariffs } from "../data/tariffs";
 import PackageStep from "../components/contract/PackageStep";
 import StudentInfoStep from "../components/contract/StudentInfoStep";
@@ -84,10 +84,19 @@ export default function ContractPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-md sticky top-0 z-50 p-3 px-6 flex items-center justify-between">
-        <a href="/">
-          <img src={logo} alt="One Consulting" className="h-12 object-contain" />
+        <a href="/" className="flex items-center gap-2">
+          <img
+            src={badge}
+            alt="One Academy & Consulting"
+            className="h-10 w-10 object-contain"
+          />
+          <span className="font-display font-bold text-blue-950 leading-tight text-sm sm:text-base">
+            Academy & Consulting
+          </span>
         </a>
-        <span className="text-sm font-semibold text-gray-500">Onlayn shartnoma</span>
+        <span className="uppercase tracking-[0.15em] text-xs font-semibold text-blue-600">
+          Onlayn shartnoma
+        </span>
       </header>
 
       <main className="max-w-2xl mx-auto px-4 py-10">
@@ -133,9 +142,9 @@ export default function ContractPage() {
 
           {step === "review" && (
             <div>
-              <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-4">
+              <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-4">
                 Shartnoma matni bilan tanishing
-              </h2>
+              </p>
               <div className="max-h-96 overflow-y-auto border rounded-lg">
                 <ReviewStep studentData={studentDataWithMeta} tariff={tariff} />
               </div>
@@ -189,9 +198,9 @@ export default function ContractPage() {
 
           {step === "sign" && (
             <div>
-              <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-4">
+              <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-4">
                 {isVip ? "Talaba imzosi" : "Imzo qo'ying"}
-              </h2>
+              </p>
               <SignaturePad onChange={setSignatureDataUrl} />
               {!isVip && pdfError && <p className="mt-3 text-sm text-red-600">{pdfError}</p>}
               <div className="mt-8 flex gap-3">
@@ -227,9 +236,9 @@ export default function ContractPage() {
 
           {step === "signGuarantor" && (
             <div>
-              <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-1">
+              <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-1">
                 Kafil imzosi
-              </h2>
+              </p>
               <p className="text-sm text-gray-500 mb-4">
                 Endi kafil ({guarantorData.fullName || "kafil"}) shu qurilmada o'z imzosini
                 qo'ysin.

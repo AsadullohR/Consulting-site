@@ -1,0 +1,156 @@
+{
+  "header": {
+    "partners": "Hamkorlar",
+    "about": "Biz haqimizda",
+    "services": "Xizmatlar",
+    "countries": "Davlatlar",
+    "results": "Natijalar",
+    "contact": "Aloqa",
+    "signContract": "Shartnoma tuzish",
+    "freeConsultation": "Bepul konsultatsiya",
+    "menu": "Menyu"
+  },
+  "hero": {
+    "kicker": "Chet elda ta'lim bo'yicha konsalting · Andijon",
+    "titleLine1": "Chet elda o'qing",
+    "titleLine2": "ishonch bilan.",
+    "subtitle": "Biz O'zbekiston bo'ylab talabalarni Yevropa, Janubiy Koreya, Turkiya va Xitoydagi yetakchi universitetlarga bog'laymiz — birinchi konsultatsiyadan borib yetguningizcha.",
+    "destinations": {
+      "europe": "Yevropa",
+      "southKorea": "Janubiy Koreya",
+      "turkey": "Turkiya",
+      "china": "Xitoy"
+    },
+    "namePlaceholder": "Ismingiz",
+    "phonePlaceholder": "Telefon raqami",
+    "submit": "Konsultatsiya olish",
+    "stats": {
+      "students": "Chet elga jo'natilgan talabalar",
+      "universities": "Hamkor universitetlar",
+      "destinationsLabel": "Ta'lim yo'nalishlari",
+      "visaRate": "Viza muvaffaqiyat darajasi"
+    },
+    "scroll": "Pastga"
+  },
+  "partners": {
+    "kicker": "Bizga ishonishadi",
+    "title": "Hamkorlarimiz",
+    "subtitle": "Biz mijozlarimizga eng yuqori sifatli xizmat ko'rsatish uchun eng yaxshi va ishonchli tashkilotlar bilan hamkorlik qilamiz."
+  },
+  "about": {
+    "kicker": "Biz haqimizda",
+    "title": "Sizning yo'lingiz ortidagi jamoa bilan tanishing",
+    "subtitle": "Bizning fidoyi mutaxassislar jamoasi har bir qadamda sizga yo'l ko'rsatishga, qo'llab-quvvatlashga va ilhomlantirishga tayyor.",
+    "tabAbout": "Biz haqimizda",
+    "tabTeam": "Jamoamiz",
+    "paragraph1": "One Academy & Consulting 2018-yilda tashkil topgan! Va shu kungacha biz 1100 dan ortiq yoshlarga chet elda — Yevropa, Janubiy Koreya, Turkiya va Xitoyda o'qishga yordam berdik!",
+    "paragraph2": "Bizning maqsadimiz — chet elda ta'limni hammabop qilish: stipendiya topishdan tortib, viza bo'yicha yordam va talabalarning moslashuvigacha.",
+    "roles": {
+      "ceo": "Bosh direktor",
+      "manager": "Menejer",
+      "visaSpecialist": "Viza bo'yicha mutaxassis"
+    }
+  },
+  "countries": {
+    "kicker": "Yo'nalishlar",
+    "title": "Siz qayerda o'z tarixingizni yozasiz?",
+    "subtitle": "Talabalarimiz dunyoning eng yaxshi burchaklarida ta'lim olishmoqda — ularning ba'zilari quyida keltirilgan.",
+    "cards": {
+      "europe": {
+        "title": "Yevropa",
+        "city": "Praga va boshqa hamkor shaharlar",
+        "desc": "EI bo'ylab hamkor universitetlar, stipendiyalar va to'liq viza qo'llab-quvvatlashi"
+      },
+      "southKorea": {
+        "title": "Janubiy Koreya",
+        "city": "Seul",
+        "desc": "Stipendiyalar, qisqa va uzoq muddatli dasturlar"
+      },
+      "turkey": {
+        "title": "Turkiya",
+        "city": "Istanbul",
+        "desc": "Yetakchi universitetlar, til kurslari, viza bo'yicha yordam"
+      },
+      "china": {
+        "title": "Xitoy",
+        "city": "Pekin",
+        "desc": "Stipendiyalar, qisqa va uzoq muddatli dasturlar"
+      }
+    }
+  },
+  "howItWorks": {
+    "kicker": "Jarayon",
+    "title": "Orzudan jo'nab ketishgacha",
+    "steps": {
+      "consultation": {
+        "title": "Bepul konsultatsiya",
+        "desc": "Maqsadlaringiz, byudjetingiz va tanlagan davlatingiz haqida gapirib bering. Avval eshitamiz, keyin maslahat beramiz."
+      },
+      "selection": {
+        "title": "Universitet tanlash",
+        "desc": "Sizning bilim darajangiz va maqsadlaringizga mos akkreditatsiyadan o'tgan dasturlarni tanlaymiz."
+      },
+      "documents": {
+        "title": "Hujjatlarni tayyorlash",
+        "desc": "Har bir forma, tarjima va notarial tasdiqlash bo'yicha sizga hamrohlik qilamiz."
+      },
+      "visa": {
+        "title": "Ariza va viza",
+        "desc": "Arizangizni topshiramiz va viza jarayonini boshidan oxirigacha kuzatib boramiz."
+      },
+      "departure": {
+        "title": "Jo'nashdan oldin",
+        "desc": "Aviachipta bron qilish, aeroportda kutib olish va sim-karta — birinchi kundan tayyor bo'lishingiz uchun (VIP tarif)."
+      }
+    }
+  },
+  "services": {
+    "kicker": "Xizmatlar",
+    "title": "To'liq hamrohlik",
+    "subtitle": "Biz shunchaki universitet tavsiya qilmaymiz — birinchi suhbatdan birinchi darsgacha sizning yoningizdamiz.",
+    "items": {
+      "scholarships": "Stipendiyalar va grantlar",
+      "admission": "Qabul bo'yicha yordam",
+      "visa": "Professional viza qo'llab-quvvatlashi",
+      "courses": "Kurslar va til tayyorgarligi"
+    }
+  },
+  "results": {
+    "kicker": "Dalillar",
+    "title": "Natijalarimiz",
+    "subtitle": "Talabalarimiz eng yaxshi universitetlar va dasturlarga qabul qilindi — ularning ba'zilari quyida keltirilgan."
+  },
+  "instagram": {
+    "title": "So'nggi yangiliklar",
+    "subtitle": "Talabalarimizning natijalari, vizalari va tadbirlarini kuzatib borish uchun Instagramda bizga obuna bo'ling.",
+    "cta": "Instagramimizga o'ting →"
+  },
+  "contact": {
+    "kicker": "Aloqa",
+    "title": "Kelajagingiz haqida gaplashamiz",
+    "namePlaceholder": "Ismingiz",
+    "emailPlaceholder": "Elektron pochtangiz",
+    "messagePlaceholder": "Xabaringiz",
+    "submit": "Yuborish",
+    "getInTouch": "Biz bilan bog'laning",
+    "getInTouchDesc": "Chet elda o'qish yoki ishlash haqida savollaringiz bormi? Biz bilan bog'laning.",
+    "address": "Manzil:",
+    "addressValue": "Amir Temur ko'chasi 1B, Andijon, O'zbekiston",
+    "phone": "Telefon:",
+    "email": "Email:"
+  },
+  "footer": {
+    "blurb": "2018-yildan beri Andijonning ishonchli chet elda ta'lim hamkori. Biz har bir talaba uchun orzularni imkoniyatga aylantiramiz.",
+    "destinationsKicker": "Yo'nalishlar",
+    "quickLinksKicker": "Tezkor havolalar",
+    "quickLinks": {
+      "destinations": "Yo'nalishlar",
+      "services": "Xizmatlar",
+      "results": "Natijalar",
+      "contact": "Aloqa"
+    },
+    "rights": "Barcha huquqlar himoyalangan.",
+    "instagram": "Instagram",
+    "telegram": "Telegram"
+  }
+}

@@ -22,9 +22,9 @@ export default function StudentInfoStep({ data, tariff, onChange, onNext, onBack
 
   return (
     <div>
-      <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase mb-4">
+      <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-4">
         Ma'lumotlaringizni kiriting
-      </h2>
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {FIELDS.map((f) => (
           <label key={f.name} className="block">
